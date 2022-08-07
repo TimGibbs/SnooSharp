@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnooSharp", "SnooSharp\SnooSharp.csproj", "{814DB988-FD02-4DAF-8793-EC380F9696A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnooSharp.Tests", "SnooSharp.Tests\SnooSharp.Tests.csproj", "{1D7D7357-DAAB-41C2-83B8-A4D7DC66C72A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnooSharp.Example", "SnooSharp.Example\SnooSharp.Example.csproj", "{FA4998AE-4307-4A39-9398-02AC89E99D56}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{814DB988-FD02-4DAF-8793-EC380F9696A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814DB988-FD02-4DAF-8793-EC380F9696A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814DB988-FD02-4DAF-8793-EC380F9696A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814DB988-FD02-4DAF-8793-EC380F9696A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D7D7357-DAAB-41C2-83B8-A4D7DC66C72A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D7D7357-DAAB-41C2-83B8-A4D7DC66C72A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D7D7357-DAAB-41C2-83B8-A4D7DC66C72A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D7D7357-DAAB-41C2-83B8-A4D7DC66C72A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA4998AE-4307-4A39-9398-02AC89E99D56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA4998AE-4307-4A39-9398-02AC89E99D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA4998AE-4307-4A39-9398-02AC89E99D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA4998AE-4307-4A39-9398-02AC89E99D56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

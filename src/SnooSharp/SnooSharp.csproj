@@ -5,6 +5,9 @@
         <LangVersion>10</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <PackageId>snoo-sharp</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Tim Gibbs</Authors>
     </PropertyGroup>
 
     <ItemGroup>

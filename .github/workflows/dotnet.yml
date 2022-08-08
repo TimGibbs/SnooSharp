@@ -15,10 +15,6 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
-    - name: Open src
-      run: |
-        cd src
-        dir
     - name: Restore dependencies
       run: dotnet restore src/SnooSharp.sln
     - name: Build

@@ -29,12 +29,14 @@ else
 var h = new HttpClient();
 var client = new SnooClient(h, options);
 var g = await client.GetDataResponses(st, et);
-var j = DataResponsesToSleepSessionMapper.Map(g);
+var j = DataResponsesToSleepSessionMapper.Map(g).Where(o=>o.EndTime>st && o.StartTime<et);
 var k = j.OrderBy(o => o.StartTime);
 foreach (var sleepSession in k)
 {
     AnsiConsole.MarkupLine($"[orange1]{sleepSession.StartTime:yyyy-MM-dd HH:mm}[/]->[orange1]{sleepSession.EndTime:yyyy-MM-dd HH:mm}[/]");
 }
+
+SleepChart.MakeChart(g.SelectMany(o=>o.levels ?? Array.Empty<Level>().AsEnumerable()));
 
 AnsiConsole.MarkupLine("[green]Press any key to exit...[/]");
 Console.ReadKey();

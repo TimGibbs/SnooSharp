@@ -4,7 +4,7 @@ public static class DataResponsesToSleepSessionMapper
 {
     public static IEnumerable<SleepSession> Map(IEnumerable<DataResponse> responses)
     {
-        return responses.SelectMany(o => o.levels)
+        return responses.SelectMany(o => o.levels ?? Array.Empty<Level>().AsEnumerable())
             .GroupBy(o=>o.sessionId)
             .Select(o=>new SleepSession(o.ToArray()))
             .Where(o=> o.StartTime != default)

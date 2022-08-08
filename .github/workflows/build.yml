@@ -15,17 +15,9 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
-    - name: Open src
-      run: |
-        cd src
-        dir
     - name: Restore dependencies
       run: dotnet restore src/SnooSharp.sln
     - name: Build
       run: dotnet build src/SnooSharp.sln --no-restore
     - name: Test
       run: dotnet test src/SnooSharp.sln --no-build --verbosity normal
-    - name: Pack with dotnet
-      run: dotnet pack src/SnooSharp/SnooSharp.csproj --output nuget-packages --configuration Release
-    - name: Push with dotnet
-      run: dotnet nuget push nuget-packages/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

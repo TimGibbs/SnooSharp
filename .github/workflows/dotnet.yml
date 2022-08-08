@@ -2,7 +2,7 @@ name: SnooSharp Nuget
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
   build:

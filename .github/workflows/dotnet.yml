@@ -20,7 +20,7 @@ jobs:
         cd src
         dir
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore SnooSharp.sln
     - name: Build
       run: dotnet build --no-restore
     - name: Test

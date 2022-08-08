@@ -2,7 +2,7 @@ namespace SnooSharp;
 
 public class DataResponse
 {
-    public List<Level> levels { get; set; }
+    public List<Level>? levels { get; set; }
     public int naps { get; set; }
     public int longestSleep { get; set; }
     public int totalSleep { get; set; }

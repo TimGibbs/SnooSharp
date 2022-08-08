@@ -16,7 +16,7 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Open src
-      run: 
+      run: |
         cd src
         dir
     - name: Restore dependencies

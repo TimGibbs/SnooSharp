@@ -36,7 +36,7 @@ foreach (var sleepSession in k)
     AnsiConsole.MarkupLine($"[orange1]{sleepSession.StartTime:yyyy-MM-dd HH:mm}[/]->[orange1]{sleepSession.EndTime:yyyy-MM-dd HH:mm}[/]");
 }
 
-SleepChart.MakeChart(g.SelectMany(o=>o.levels ?? Array.Empty<Level>().AsEnumerable()));
+SleepChart.MakeChart(g.SelectMany(o=>o.levels ?? Enumerable.Empty<Level>()));
 
 AnsiConsole.MarkupLine("[green]Press any key to exit...[/]");
 Console.ReadKey();

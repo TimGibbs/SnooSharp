@@ -11,7 +11,6 @@ public static class SleepChart
         var ordered = g.OrderBy(o => o.Key);
         foreach (var (key, value) in ordered)
         {
-            
             var chart = string.Join("", value);
             chart = Regex.Replace(chart, "[1]+", m => $@"[green]{m.Value}[/]");
             chart = Regex.Replace(chart, "[2]+", m => $@"[red]{m.Value}[/]");

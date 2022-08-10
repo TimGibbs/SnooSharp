@@ -71,6 +71,50 @@ public class SnooClientTests
         responses.Count().Should().Be(2);
         tokenCalls.Should().Be(1);
     }
+
+    [Fact]
+    public async Task GetDataFails()
+    {
+        var fixture = new Fixture
+        {
+            RepeatCount = 3
+        };
+        var st = new DateTime(2022, 08, 05, 08,00,00);
+        
+        var opts = fixture.Create<SnooClientOptions>();
+        var token = fixture.Build<TokenResponse>().With(o => o.expires_in, 300).Create();
+        var mockMessageHandler = new Mock<HttpMessageHandler>();
+        
+        mockMessageHandler.Protected()
+            .Setup<Task<HttpResponseMessage>>("SendAsync"
+                , ItExpr.Is<HttpRequestMessage>(o=>o.RequestUri!.ToString().Contains(Constants.UrlParts.LoginEndpoint))
+                , ItExpr.IsAny<CancellationToken>())
+            .ReturnsAsync(new HttpResponseMessage {
+                StatusCode = HttpStatusCode.OK,
+                Content = JsonContent.Create(token)
+            });
+        
+        mockMessageHandler.Protected()
+            .Setup<Task<HttpResponseMessage>>("SendAsync"
+                , ItExpr.Is<HttpRequestMessage>(o=>
+                    o.RequestUri!.ToString().Contains(Constants.UrlParts.DataEndpoint)
+                    && o.RequestUri!.ToString().Contains(st.ToString("MM/dd/yyyy")))
+                , ItExpr.IsAny<CancellationToken>())
+            .ReturnsAsync(new HttpResponseMessage {
+                StatusCode = HttpStatusCode.Unauthorized,
+                Content = new StringContent("uh oh")
+            });
+        
+        var httpClient = new HttpClient(mockMessageHandler.Object);
+        var snooClient = new SnooClient(httpClient,opts);
+        
+        Func<Task> dataResponses = async ()=> await snooClient.GetData(st);
+        
+        mockMessageHandler.Verify();
+
+        await dataResponses.Should().ThrowAsync<Exception>().WithMessage("uh oh");
+    }
+    
     
     
         [Fact]

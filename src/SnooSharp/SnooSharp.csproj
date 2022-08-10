@@ -9,7 +9,7 @@
         <Version>1.0.1</Version>
         <Authors>Tim Gibbs</Authors>
     </PropertyGroup>
-v
+
     <ItemGroup>
       <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
     </ItemGroup>
